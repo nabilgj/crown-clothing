@@ -20,5 +20,5 @@ const FormInput = ({ handleChange, label, ...otherProps }) => {
   );
 };
 
-// into Sign in Component
+// into Signin and Signup Components
 export default FormInput;
