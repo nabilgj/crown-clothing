@@ -8,6 +8,9 @@ import { auth } from "../../firebase/firebase.utils";
 
 import { connect } from "react-redux";
 
+import CartIcon from "../cart-icon/cart-icon";
+import CartDropdown from "../cart-dropdown/cart-dropdown";
+
 const Header = ({ currentUser }) => {
   return (
     <div className="header">
@@ -32,7 +35,9 @@ const Header = ({ currentUser }) => {
             Sign In
           </Link>
         )}
+        <CartIcon />
       </div>
+      <CartDropdown />
     </div>
   );
 };
