@@ -1,5 +1,6 @@
 import { createSelector } from "reselect";
 
+// state.cart coming from root reducer
 // input selector that does not use createSelector
 const selectCart = (state) => state.cart;
 
@@ -9,6 +10,12 @@ export const selectCartItems = createSelector(
   (cart) => cart.cartItems
 );
 
+// into header component
+export const selectCartHidden = createSelector(
+  [selectCart],
+  (cart) => cart.hidden
+);
+
 // into cart icon component
 export const selectCartItemsCount = createSelector(
   [selectCartItems],
@@ -16,6 +23,13 @@ export const selectCartItemsCount = createSelector(
     cartItems.reduce((accumatedQty, cartItem) => {
       return accumatedQty + cartItem.quantity;
     }, 0)
+);
+
+// into checkout
+export const selectCartTotal = createSelector([selectCartItems], (cartItems) =>
+  cartItems.reduce((accumatedQty, cartItem) => {
+    return accumatedQty + cartItem.quantity * cartItem.price;
+  }, 0)
 );
 
 // output selector that uses createSelector
