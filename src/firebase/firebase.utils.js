@@ -13,13 +13,16 @@ const config = {
   measurementId: "G-EYQCPW3PGD",
 };
 
-// into App
+// into App to store in firebase firestore db
 export const createUserProfileDocument = async (userauth, additionalData) => {
   if (!userauth) {
     return;
   }
 
+  // useRef refers to the location
   const userRef = firestore.doc(`users/${userauth.uid}`);
+
+  // snapshot represents the data which has get and set
   const snapShot = await userRef.get();
 
   console.log("createUserProfileDocument", snapShot);
@@ -51,7 +54,7 @@ export const firestore = firebase.firestore();
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ prompt: "select_account" });
 
-// into sign in component
+// into SignIn component
 export const signInWithGoogle = () => auth.signInWithPopup(provider);
 
 export default firebase;

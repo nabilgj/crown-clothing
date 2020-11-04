@@ -6,14 +6,12 @@ import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 
 import HomePage from "./pages/homepage/homepage";
 import ShopPage from "./pages/shop/shop";
-import Header from "./components/header/header";
 import CheckoutPage from "./pages/checkout/checkout";
-
 import SignInAndSignUp from "./pages/sign-in-and-sign-up/sign-in-and-sign-up";
-
-import { createStructuredSelector } from "reselect";
+import Header from "./components/header/header";
 
 import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 import { setCurrentUser } from "./redux/user/user.actions";
 import { selectCurrentUser } from "./redux/user/user.selectors";
 

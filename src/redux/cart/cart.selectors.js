@@ -4,9 +4,11 @@ import { createSelector } from "reselect";
 // input selector that does not use createSelector
 const selectCart = (state) => state.cart;
 
-// into cart drop down component
+// output selector that uses input selectors and createSelector for output
+// create selectors take 2 arguments
+// into CartDropdown component
 export const selectCartItems = createSelector(
-  [selectCart],
+  [selectCart], // this is a collection of array of input selector
   (cart) => cart.cartItems
 );
 
@@ -16,7 +18,7 @@ export const selectCartHidden = createSelector(
   (cart) => cart.hidden
 );
 
-// into cart icon component
+// into CartIcon component
 export const selectCartItemsCount = createSelector(
   [selectCartItems],
   (cartItems) =>
@@ -25,11 +27,9 @@ export const selectCartItemsCount = createSelector(
     }, 0)
 );
 
-// into checkout
+// into CheckoutPage
 export const selectCartTotal = createSelector([selectCartItems], (cartItems) =>
   cartItems.reduce((accumatedQty, cartItem) => {
     return accumatedQty + cartItem.quantity * cartItem.price;
   }, 0)
 );
-
-// output selector that uses createSelector

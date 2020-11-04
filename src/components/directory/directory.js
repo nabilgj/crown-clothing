@@ -11,14 +11,7 @@ const Directory = ({ sections }) => {
   return (
     <div className="directory-menu">
       {sections.map(({ id, ...otherSectionProps }) => (
-        <MenuItem
-          key={id}
-          // title={title}
-          // imageUrl={imageUrl}
-          // size={size}
-          // linkUrl={linkUrl}
-          {...otherSectionProps}
-        />
+        <MenuItem key={id} {...otherSectionProps} />
       ))}
     </div>
   );

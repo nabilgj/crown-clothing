@@ -23,7 +23,6 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = (dispatch) => {
-  console.log("i am being called");
   return {
     toggleCartHidden: () => dispatch(toggleCartHidden()),
   };

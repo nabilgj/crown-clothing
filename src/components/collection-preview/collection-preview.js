@@ -19,5 +19,5 @@ const CollectionPreview = ({ title, items }) => {
   );
 };
 
-// into Shop
+// into CollectionsOverview
 export default CollectionPreview;

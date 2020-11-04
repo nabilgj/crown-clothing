@@ -58,5 +58,5 @@ const mapStateToProps = createStructuredSelector({
   total: selectCartTotal,
 });
 
-// into App js and rendered through Cart dropdown
+// into App js and rendered through CartDropdown via history props
 export default connect(mapStateToProps)(CheckoutPage);

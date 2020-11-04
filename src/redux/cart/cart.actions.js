@@ -1,13 +1,13 @@
 import CartActionTypes from "./cart.types";
 
-// into cart icon component for dispatching
+// into cartIcon & CartDropdown component for dispatching to show/hide cart dropdown
 export const toggleCartHidden = () => {
   return {
     type: CartActionTypes.TOGGLE_CART_HIDDEN,
   };
 };
 
-// into Collection item component
+// into CollectionItem component
 export const addItem = (item) => {
   return {
     type: CartActionTypes.ADD_ITEM,
@@ -15,7 +15,7 @@ export const addItem = (item) => {
   };
 };
 
-// into checkout item
+// into CheckoutItem
 export const removeItem = (item) => {
   return {
     type: CartActionTypes.REMOVE_ITEM,

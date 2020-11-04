@@ -1,5 +1,4 @@
 import React from "react";
-
 import "./collection-item.styles.scss";
 
 import CustomButton from "../custom-button/custom-button";

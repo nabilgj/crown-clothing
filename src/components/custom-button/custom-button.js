@@ -20,5 +20,5 @@ const CustomButton = ({
   );
 };
 
-// into Signin, CollectionItem Components
+// into SignIn, CollectionItem Components
 export default CustomButton;
