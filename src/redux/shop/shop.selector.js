@@ -10,7 +10,7 @@ export const selectShopCollections = createSelector(
   (shop) => shop.collections // colections coming from reducer
 );
 
-// into CollectionsOverview
+// into CollectionsOverview and App
 export const selectCollectionsForPreview = createSelector(
   [selectShopCollections],
   (collections) => Object.keys(collections).map((key) => collections[key])

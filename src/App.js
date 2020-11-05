@@ -40,9 +40,19 @@ class App extends Component {
         });
       }
 
-      if (!userAuth) {
-        setCurrentUser(userAuth);
-      }
+      // if (!userAuth) {
+      //   setCurrentUser(userAuth);
+      // }
+      setCurrentUser(userAuth);
+      // addCollectionAndDocuments(
+      //   "collections",
+      //   collectionsArray.map(({ title, items }) => {
+      //     return {
+      //       title: title,
+      //       items: items,
+      //     };
+      //   })
+      // );
 
       console.log("onAuthStateChanged", userAuth);
     });

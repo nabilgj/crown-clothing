@@ -13,16 +13,19 @@ const config = {
   measurementId: "G-EYQCPW3PGD",
 };
 
-// into App to store in firebase firestore db
+firebase.initializeApp(config);
+
+// into App to store in firestore db
 export const createUserProfileDocument = async (userauth, additionalData) => {
   if (!userauth) {
     return;
   }
 
-  // useRef refers to the location
+  // firestore.doc is to query db for a doc reference obj in firestore db
   const userRef = firestore.doc(`users/${userauth.uid}`);
 
   // snapshot represents the data which has get and set
+  // using userRef to get snapshot obj
   const snapShot = await userRef.get();
 
   console.log("createUserProfileDocument", snapShot);
@@ -46,7 +49,23 @@ export const createUserProfileDocument = async (userauth, additionalData) => {
   return userRef;
 };
 
-firebase.initializeApp(config);
+// being used in App
+export const addCollectionAndDocuments = async (
+  collectionKey,
+  objectsToAdd
+) => {
+  const collectionRef = firestore.collection(collectionKey);
+
+  const batch = firestore.batch();
+
+  objectsToAdd.forEach((obj) => {
+    const newDocRef = collectionRef.doc();
+    console.log("objectsToAdd", newDocRef);
+    batch.set(newDocRef, obj);
+  });
+
+  return await batch.commit();
+};
 
 export const auth = firebase.auth(); // being used in App
 export const firestore = firebase.firestore();
