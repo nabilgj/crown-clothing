@@ -67,7 +67,31 @@ export const addCollectionAndDocuments = async (
   return await batch.commit();
 };
 
-export const auth = firebase.auth(); // being used in App
+// into ShopPage
+export const convertCollectionsSnapshotToMap = (collections) => {
+  const transformedCollection = collections.docs.map((doc) => {
+    const { title, items } = doc.data();
+
+    return {
+      routeName: encodeURI(title.toLowerCase()),
+      id: doc.id,
+      title: title,
+      items: items,
+    };
+  });
+
+  console.log("convertCollectionsSnapshotToMap", transformedCollection);
+
+  return transformedCollection.reduce((accumulator, collection) => {
+    accumulator[collection.title.toLowerCase()] = collection;
+    return accumulator;
+  }, {});
+};
+
+// being used in App for user authentication
+export const auth = firebase.auth();
+
+// being used in ShopPage for fetching collection
 export const firestore = firebase.firestore();
 
 const provider = new firebase.auth.GoogleAuthProvider();

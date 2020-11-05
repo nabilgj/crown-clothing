@@ -44,15 +44,6 @@ class App extends Component {
       //   setCurrentUser(userAuth);
       // }
       setCurrentUser(userAuth);
-      // addCollectionAndDocuments(
-      //   "collections",
-      //   collectionsArray.map(({ title, items }) => {
-      //     return {
-      //       title: title,
-      //       items: items,
-      //     };
-      //   })
-      // );
 
       console.log("onAuthStateChanged", userAuth);
     });
